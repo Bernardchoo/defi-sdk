@@ -68,7 +68,7 @@ contract('BalancerAdapter', () => {
         adapterRegistry = result.contract;
       });
     await adapterRegistry.methods.addProtocols(
-      ['Balancer'],
+      [web3.utils.toHex('Balancer')],
       [[
         'Mock Protocol Name',
         'Mock protocol description',
@@ -89,7 +89,7 @@ contract('BalancerAdapter', () => {
         gas: '1000000',
       });
     await adapterRegistry.methods.addTokenAdapters(
-      ['ERC20', 'Balancer pool token'],
+      [web3.utils.toHex('ERC20'), web3.utils.toHex('Balancer pool token')],
       [erc20TokenAdapterAddress, tokenAdapterAddress],
     )
       .send({
